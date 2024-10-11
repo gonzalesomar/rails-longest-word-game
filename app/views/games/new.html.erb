@@ -1,0 +1,20 @@
+<h1 class="mb-3"> New Game </h1>
+
+<div class="d-flex justify-content-between w-50">
+  <% @letters.each do |letter| %>
+  <li class="btn btn-primary bg-gradient mb-5 p-4 shadow border text-white"> <%= letter %> </li>
+  <% end %>
+</div>
+
+<form action="/score" method="post" data-turbo="false">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters.join(' ') %>
+
+  <div class="mb-3">
+    <label for="word" class="form-label">What is the longest word you can fin? </label>
+  </div>
+  <div class="mb-3 d-flex w-50">
+    <input type="text" class="form-control" name="word" id="word" required>
+    <button type="submit" class="btn btn-primary">Play</button>
+  </div>
+</form>

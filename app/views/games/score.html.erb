@@ -1,0 +1,17 @@
+<h1 class="mb-3"> Score </h1>
+
+<% if @isin_grid %>
+
+
+  <% if @is_english %>
+    <p> <strong>Congratulations!</strong> <%=@word%> is a valid English Word!</p>
+  <% else %>
+    <p> Sorry but <strong> <%=@word%></strong> does not seem to be a valid English word ... </p>
+  <% end %>
+
+<% else %>
+  <p> Sorry but <strong> <%=@word%></strong> can't be built
+    out of <%= @grid %></p>
+<% end %>
+
+<%= link_to "Play again", new_path, id:"link"%>
